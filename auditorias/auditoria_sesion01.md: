@@ -1,1 +1,24 @@
+Auditoría Sesión 01 - Inversión de Buffer In-Place
+Evidencia del Harness
+RESULTADO: 6/6 pruebas superadas.
 
+Casos evaluados:
+
+invertir("HOLA") -> ALOH
+invertir("abc") -> cba
+invertir("") -> "" 
+invertir("AB") -> BA 
+invertir("a") -> a 
+invertir(NULL) -> sin crash
+Descripción de la solución
+La función invertir() utiliza dos índices, uno al inicio y otro al final de la cadena. En cada iteración se intercambian los caracteres correspondientes mediante una variable temporal hasta que ambos índices se encuentran. La inversión se realiza directamente sobre el mismo buffer de memoria sin utilizar memoria dinámica ni arreglos auxiliares.
+
+Reporte Crítico
+Inicialmente mi implementación artesanal no invertía la cadena correctamente, lo que fue detectado por el harness al fallar los casos 1, 2 y 4. Después de corregir la lógica de intercambio, todas las pruebas fueron superadas.
+
+El caso borde más importante considerado fue invertir(NULL). Sin la validación correspondiente, la función podría provocar un fallo de segmentación al intentar acceder a memoria inválida. Este comportamiento fue detectado mediante la prueba 6 del harness.
+
+También se verificó el comportamiento con una cadena vacía ("") y una cadena de un solo carácter ("a"), confirmando que la función las maneja correctamente.
+
+Conclusión
+La implementación cumple con el contrato establecido, realiza la inversión in-place y supera las 6 pruebas del harness sin advertencias de compilación.
