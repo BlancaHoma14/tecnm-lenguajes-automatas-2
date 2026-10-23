@@ -61,7 +61,7 @@ void invertir(char *s) {
     while (inicio < fin) {
         char temp = s[inicio];
         s[inicio] = s[fin];
-        s[fin] = temporal;
+        s[fin] = temp;
 
         inicio++;
         fin--;
@@ -82,7 +82,7 @@ Valores NULL, buffers vacíos y longitudes impares.
 | 3 | Cadena vacía | Cadena vacía | Cadena vacía | OK |
 | 4 | AB | BA | BA | OK |
 | 5 | a | a | a | OK |
-| 6 | NULL | Sin error | Sin error | OK |
+| 6 | NULL | Sin crash | Sin crash | OK |
 
 ### RESULTADOS DE LA IMPLEMENTACION MANUAL
 
@@ -122,6 +122,6 @@ Todos los casos mostraron el estado OK y no se presentaron errores de compilaci�
 
 **¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?**
 
-El caso borde más importante fue el manejo de valores NULL. Se verificó que, al recibir un puntero NULL, la función termina inmediatamente sin provocar un fallo de segmentación.
+Un posible problema que la IA podía omitir era validar el parámetro antes de llamar a strlen(s). Si s fuera NULL, la ejecución produciría un fallo de segmentación. La solución fue verificar if (s == NULL) return; antes de acceder a la cadena.
 
 **Empresa digital: BlancaHoma14**
