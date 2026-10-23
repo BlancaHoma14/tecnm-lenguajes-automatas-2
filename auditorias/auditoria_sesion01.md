@@ -3,8 +3,8 @@
 **Materia:** Lenguajes y Autómatas II (SCD-1016)  
 **Tema:** Encuadre, Diagnóstico de Punteros y Metodología IA  
 **Docente Titular:** MCC. Iván Márquez Larios (`ijmarquezl`)  
-**Estudiante:** [Jonathan Uriel Che Castillo]  
-**Matrícula:** [No.245313]  
+**Estudiante:** [Blanca Janet Homa May]  
+**Matrícula:** [No.24531351]  
 **Track:** C (el harness evalúa C; la versión en Rust es opcional y no se califica con este harness)  
 
 ---
