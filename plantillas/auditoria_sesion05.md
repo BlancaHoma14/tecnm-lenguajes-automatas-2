@@ -146,7 +146,7 @@ void postorden(ASTNode *n, char *buf, int cap) {
        Caso                              esperado:                    obtenido:             resultado
        [ 1] hoja 42                           esperado: 42                 obtenido: 42          OK
        [ 2] 3+(5*2)                           esperado: 3 5 2 * +          obtenido: 3 5 2 * +   OK
-       [ 3] arbol NULL                        esperado:                    obtenido:             OK                                                                                                               [ 4] (1+2)*(3+4)
+       [ 3] arbol NULL                        esperado:                    obtenido:             OK                                                                                                                                        [ 4] (1+2)*(3+4)
             esperado: 1 2 + 3 4 + *
             obtenido: 1 2 + 3 4 + *
             -> OK
