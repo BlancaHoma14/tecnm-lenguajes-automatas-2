@@ -142,7 +142,7 @@ void postorden(ASTNode *n, char *buf, int cap) {
 ### Salida del harness
 ``
 === AUDITORIA SESION 05 - Recorrido postorden y RPN ===                                            
-Caso                                                                                           esperado:                                                                                    obtenido:              resultado
+Caso                                                                                                                              esperado:                                                                                                                             obtenido:              resultado
 [ 1] hoja 42                                        esperado: 42           obtenido: 42           OK
 [ 2] 3+(5*2)                                       esperado: 3 5 2 * +    obtenido: 3 5 2 * +    OK
 [ 3] arbol NULL                                    esperado:              obtenido:              OK
