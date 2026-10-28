@@ -141,7 +141,7 @@ void postorden(ASTNode *n, char *buf, int cap) {
 *Pruebas ejecutadas:*compilación con GCC y validación funcional mediante los cinco casos del harness proporcionado.
 ### Salida del harness
 ``
-=== AUDITORIA SESION 05 - Recorrido postorden y RPN ===
+=== AUDITORIA SESION 05 - Recorrido postorden y RPN ===                                            
 Caso                               esperado:              obtenido:              resultado
 [ 1] hoja 42                            esperado: 42           obtenido: 42           OK
 [ 2] 3+(5*2)                            esperado: 3 5 2 * +    obtenido: 3 5 2 * +    OK
