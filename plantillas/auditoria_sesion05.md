@@ -143,8 +143,8 @@ void postorden(ASTNode *n, char *buf, int cap) {
 ``
 === AUDITORIA SESION 05 - Recorrido postorden y RPN ===
 
-        Caso                                                                                                                         esperado:                                                                                                                      obtenido:                                                                                                               resultado
-                                                                                                                                                                                                                                                                                                             [ 1] hoja 42                      esperado: 42                 obtenido: 42          OK
+        Caso                                                                                                esperado:                                                                                             obtenido:                                                                                             resultado
+                                                                                                                                                                                                                                                                                                             [ 1] hoja 42                  esperado: 42                 obtenido: 42          OK
 
        [ 2] 3+(5*2)                      esperado: 3 5 2 * +          obtenido: 3 5 2 * +   OK
 
