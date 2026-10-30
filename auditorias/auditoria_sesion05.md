@@ -13,9 +13,9 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al implementar manualmente la función postorden(), identifiqué que debía respetar exactamente la firma declarada en api_sesion05.h y controlar el espacio disponible en el buffer de salida. También comprendí que el recorrido debía realizarse en el orden izquierdo, derecho y raíz para generar correctamente la notación polaca inversa.
 
-Una dificultad fue construir la cadena RPN sin agregar espacios innecesarios ni dejar un espacio al final. Para resolverlo, utilicé la recursividad y la función snprintf() para convertir los valores numéricos a texto y concatenar los resultados de los subárboles.
+> Una dificultad fue construir la cadena RPN sin agregar espacios innecesarios ni dejar un espacio al final. Para resolverlo, utilicé la recursividad y la función snprintf() para convertir los valores numéricos a texto y concatenar los resultados de los subárboles.
 
-Mi implementación manual utilizó buffers temporales de tamaño fijo de 256 caracteres. Aunque superó los cinco casos del harness, identifiqué que esta estrategia puede provocar truncamiento cuando se procesan expresiones grandes. Por ello, reconocí la necesidad de mejorar el control de memoria y la construcción de la cadena.
+> Mi implementación manual utilizó buffers temporales de tamaño fijo de 256 caracteres. Aunque superó los cinco casos del harness, identifiqué que esta estrategia puede provocar truncamiento cuando se procesan expresiones grandes. Por ello, reconocí la necesidad de mejorar el control de memoria y la construcción de la cadena.
 
 ---
 
@@ -30,19 +30,19 @@ Mi implementación manual utilizó buffers temporales de tamaño fijo de 256 car
 | **Output (O)** | Solo código modular y análisis de complejidad |
 
 ### 2.2 Prompt Estructurado
-``
-[C — Contexto: Estoy trabajando en la asignatura Lenguajes y Autómatas II. Necesito implementar una función en C que recorra un árbol sintáctico abstracto (AST) en postorden y genere la notación polaca inversa (RPN) en un buffer.
+
+```
+C — Contexto: Estoy trabajando en la asignatura Lenguajes y Autómatas II. Necesito implementar una función en C que recorra un árbol sintáctico abstracto (AST) en postorden y genere la notación polaca inversa (RPN) en un buffer.
 
 R — Rol: Actúa como un ingeniero de software especializado en lenguaje C, estructuras de datos recursivas y compiladores.
 
 E — Especificación: Implementa la función postorden(ASTNode *n, char *buf, int cap) respetando exactamente la declaración de api_sesion05.h. El recorrido debe seguir el orden izquierdo, derecho y raíz. Los números y operadores deben separarse con un solo espacio, sin espacio final. Si el árbol es nulo, la salida debe ser una cadena vacía. No se debe imprimir con printf() desde la función ni agregar una función main().
-
 Controla la capacidad del buffer para no escribir fuera de sus límites, conserva el terminador '\0' cuando el buffer y su capacidad lo permitan y evita advertencias con -std=c11 -Wall -Wextra -Werror. Utiliza una implementación modular que facilite la revisión y las pruebas.
 
 O — Output: Entrega el código completo de ia_sesion05_c.c, listo para compilar con el harness de la Sesión 05. Explica las mejoras respecto a una implementación manual que utiliza buffers temporales de tamaño fijo y describe la complejidad temporal y espacial.Pega aquí el prompt formal que redactaste para la IA]
-``
 
-
+```
+---
 
 ## 3. Código Devuelto por el Modelo
 ```c
@@ -140,32 +140,27 @@ void postorden(ASTNode *n, char *buf, int cap) {
 ## 4. Fase 3: El Auditor (Resultados del Test Harness)
 *Pruebas ejecutadas:*compilación con GCC y validación funcional mediante los cinco casos del harness proporcionado.
 ### Salida del harness
-``
-      
-       === AUDITORIA SESION 05 - Recorrido postorden y RPN ===
-       Caso                              esperado:                    obtenido:             resultado
-       [ 1] hoja 42                           esperado: 42                 obtenido: 42          OK
-       [ 2] 3+(5*2)                           esperado: 3 5 2 * +          obtenido: 3 5 2 * +   OK
-       [ 3] arbol NULL                        esperado:                    obtenido:             OK 
-       [ 4] (1+2)*(3+4)
-            esperado: 1 2 + 3 4 + *
-            obtenido: 1 2 + 3 4 + *
-            -> OK
 
-       [ 5] 8-3                               esperado: 8 3 -              obtenido: 8 3 -       OK
+```
+ === AUDITORIA SESION 05 - Recorrido postorden y RPN ===
+ Caso                        esperado:                    obtenido:                 resultado
+[ 1] hoja 42                 esperado: 42                 obtenido: 42                  OK
+[ 2] 3+(5*2)                 esperado: 3 5 2 * +          obtenido: 3 5 2 * +           OK
+[ 3] arbol NULL              esperado:                    obtenido:                     OK
+[ 4] (1+2)*(3+4)             esperado: 1 2 + 3 4 + *      obtenido: 1 2 + 3 4 + *    -> OK
+[ 5] 8-3                     esperado: 8 3 -              obtenido: 8 3 -               OK
 
-       RESULTADO: 5/5 pruebas superadas
-       TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion05.md
+RESULTADO: 5/5 pruebas superadas
+TODO EN VERDE.
 
-``
-
-* [ ✓] Caso base y límites superados sin *Crash*.
-* [ ✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [ ✓] La complejidad teórica coincide con la implementada.
+```
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > El caso borde identificado fue el uso de un buffer demasiado pequeño para almacenar toda la expresión RPN. La implementación manual puede truncar resultados por utilizar buffers fijos de 256 caracteres. La versión mejorada verifica el espacio disponible antes de agregar cada token, evitando escribir fuera de los límites y manteniendo la cadena terminada en '\0'. Sin embargo, el harness original no prueba buffers pequeños ni árboles muy profundos, por lo que sería necesario agregar pruebas para comprobar estos casos.
 
 ---
-**Firma digital:** [Blanca Janet Homa May]
+**Firma digital:** [BlancaHoma14]
