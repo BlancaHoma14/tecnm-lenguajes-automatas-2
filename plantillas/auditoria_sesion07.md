@@ -12,13 +12,13 @@
 *Reto:* Evaluador recursivo de operaciones  
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > En esta primera fase desarrollé manualmente la función evaluar() en lenguaje C.
+Comencé identificando los tipos de nodos del árbol sintáctico abstracto.
 
-Comencé identificando los tipos de nodos del árbol sintáctico abstracto. Después implementé las condiciones necesarias para reconocer los nodos numéricos y los nodos de operaciones binarias.
+> Después implementé las condiciones necesarias para reconocer los nodos numéricos y los nodos de operaciones binarias.
 
-Utilicé recursividad para evaluar primero el hijo izquierdo y posteriormente el hijo derecho. También incorporé comprobaciones para detectar la división y el módulo entre cero, así como los nodos inválidos.
+> Utilicé recursividad para evaluar primero el hijo izquierdo y posteriormente el hijo derecho. También incorporé comprobaciones para detectar la división y el módulo entre cero, así como los nodos inválidos.
 
-Dificultad encontrada:
-
+> Dificultad encontrada:
 La principal dificultad fue controlar correctamente los errores durante las llamadas recursivas, ya que cuando un hijo presenta un error es necesario detener la evaluación del nodo padre.
 
 ---
@@ -209,18 +209,18 @@ Caso                               esperado:              obtenido:             
 [ 6] (8/2)+1                            esperado: 5            obtenido: 5            OK
 
 RESULTADO: 6/6 pruebas superadas
-TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion07.md
+TODO EN VERDE.
 ```
 
-* [ ✔] Caso base y límites superados sin *Crash*.
-* [✔ ] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✔ ] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Durante la revisión identifiqué que una propuesta inicial de IA podía omitir la validación de los hijos de un nodo de operación cuando estos fueran NULL.
 
-Para corregirlo, incorporé una comprobación dentro de la función recursiva, de manera que los nodos inexistentes generen el error 2 y no provoquen una caída del programa.
+> Para corregirlo, incorporé una comprobación dentro de la función recursiva, de manera que los nodos inexistentes generen el error 2 y no provoquen una caída del programa.
 
 ---
-**Firma digital:** [Blanca Janet Homa May]
+**Firma digital:** [BlancaHoma14]
