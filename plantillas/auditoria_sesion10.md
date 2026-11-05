@@ -13,9 +13,9 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al realizar manualmente el código, identifiqué que la principal dificultad era organizar las funciones primaria(), termino() y expr() para que trabajaran de manera coordinada y respetaran la precedencia de los operadores matemáticos.
 
-También tuve que considerar que las multiplicaciones y divisiones deben resolverse antes que las sumas y restas. Para conseguirlo utilicé llamadas entre funciones, de manera que expr() llamara a termino() y esta, a su vez, llamara a primaria().
+> También tuve que considerar que las multiplicaciones y divisiones deben resolverse antes que las sumas y restas. Para conseguirlo utilicé llamadas entre funciones, de manera que expr() llamara a termino() y esta, a su vez, llamara a primaria().
 
-Otra dificultad fue reconocer los paréntesis y comprobar que estuvieran correctamente cerrados. Además, tuve que controlar los errores para distinguir entre una división entre cero, identificada con el código 1, y una expresión con sintaxis inválida, identificada con el código 2.
+> Otra dificultad fue reconocer los paréntesis y comprobar que estuvieran correctamente cerrados. Además, tuve que controlar los errores para distinguir entre una división entre cero, identificada con el código 1, y una expresión con sintaxis inválida, identificada con el código 2.
 
 ---
 
@@ -263,19 +263,19 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion10.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Al revisar el código generado por la IA, identifiqué que no contempla todos los posibles casos límite. Por ejemplo, la función saltar() solamente reconoce el espacio en blanco normal ' ', por lo que no reconoce otros caracteres de separación, como tabulaciones (\t) o saltos de línea (\n).
 
-También observé que el código no comprueba si las operaciones aritméticas con valores de tipo long producen un desbordamiento. Esto podría ocasionar resultados incorrectos cuando se introducen números demasiado grandes.
+> También observé que el código no comprueba si las operaciones aritméticas con valores de tipo long producen un desbordamiento. Esto podría ocasionar resultados incorrectos cuando se introducen números demasiado grandes.
 
-Para mejorar la solución, identifiqué que se puede utilizar isspace() de la biblioteca ctype.h dentro de saltar() para reconocer diferentes tipos de espacios en blanco. Además, sería necesario agregar comprobaciones de límites antes de realizar operaciones aritméticas para prevenir desbordamientos.
+> Para mejorar la solución, identifiqué que se puede utilizar isspace() de la biblioteca ctype.h dentro de saltar() para reconocer diferentes tipos de espacios en blanco. Además, sería necesario agregar comprobaciones de límites antes de realizar operaciones aritméticas para prevenir desbordamientos.
 
-Estos casos no están incluidos en los seis ejercicios originales del harness, por lo que deben probarse adicionalmente.
+> Estos casos no están incluidos en los seis ejercicios originales del harness, por lo que deben probarse adicionalmente.
 
 ---
-**Firma digital:** [Blanca Janet Homa May]
+**Firma digital:** [BlancaHoma14]
