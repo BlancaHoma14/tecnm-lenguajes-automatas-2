@@ -13,9 +13,9 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al realizar manualmente el código, identifiqué que uno de los principales problemas era recorrer correctamente el catálogo de funciones para encontrar el nombre solicitado y comprobar que la cantidad de argumentos coincidiera con su aridad registrada.
 
-También tuve que considerar diferentes situaciones: cuando una función no está registrada, cuando se llama con una cantidad incorrecta de argumentos y cuando se trata de una función sin parámetros. Otra dificultad fue utilizar correctamente strcmp() para comparar los nombres de las funciones, ya que en C no se deben comparar cadenas utilizando directamente el operador ==.
+> También tuve que considerar diferentes situaciones: cuando una función no está registrada, cuando se llama con una cantidad incorrecta de argumentos y cuando se trata de una función sin parámetros. Otra dificultad fue utilizar correctamente strcmp() para comparar los nombres de las funciones, ya que en C no se deben comparar cadenas utilizando directamente el operador ==.
 
-Además, fue necesario validar los punteros para evitar errores cuando el catálogo o el nombre de la función fueran NULL.
+> Además, fue necesario validar los punteros para evitar errores cuando el catálogo o el nombre de la función fueran NULL.
 
 ---
 
@@ -136,22 +136,22 @@ Caso                               esperado:              obtenido:             
 RESULTADO: 6/6 pruebas superadas
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Al revisar la primera propuesta de código generada por la IA, identifiqué que no contemplaba el caso en el que alguno de los registros del catálogo tuviera el campo nombre con valor NULL. Esto podía provocar un comportamiento incorrecto al utilizar strcmp(), ya que esta función necesita recibir cadenas válidas.
 
-Para solucionar el problema, agregué la siguiente condición dentro del ciclo:
+> Para solucionar el problema, agregué la siguiente condición dentro del ciclo:
 if (catalogo[i].nombre == NULL) {
     continue;
 }
 
-Con esta validación, el programa omite los registros que no tienen un nombre válido y continúa buscando en el catálogo sin provocar un error por esa comparación.
+> Con esta validación, el programa omite los registros que no tienen un nombre válido y continúa buscando en el catálogo sin provocar un error por esa comparación.
 
-También agregué la validación total < 0 para rechazar cantidades negativas de registros. De esta manera, el código queda mejor protegido ante entradas inválidas y cumple con las condiciones solicitadas.
+> También agregué la validación total < 0 para rechazar cantidades negativas de registros. De esta manera, el código queda mejor protegido ante entradas inválidas y cumple con las condiciones solicitadas.
 
 ---
-**Firma digital:** [Blanca Janet Homa May]
+**Firma digital:** [BlancaHoma14]
