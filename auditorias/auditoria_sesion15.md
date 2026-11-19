@@ -13,11 +13,11 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al desarrollar manualmente las funciones push_ambito() y pop_ambito(), identifiqué que la principal dificultad era administrar correctamente la memoria dinámica y los apuntadores de la estructura Ambito.
 
-Para implementar push_ambito() tuve que utilizar malloc() para reservar memoria para un nuevo ámbito y enlazarlo con el ámbito anterior mediante el campo padre.
+> Para implementar push_ambito() tuve que utilizar malloc() para reservar memoria para un nuevo ámbito y enlazarlo con el ámbito anterior mediante el campo padre.
 
-En la función pop_ambito() encontré la dificultad de conservar la dirección del ámbito padre antes de liberar el ámbito actual con free(). También tuve que considerar que la raíz no debe liberarse, porque puede estar declarada directamente en el programa y no haber sido creada con malloc().
+> En la función pop_ambito() encontré la dificultad de conservar la dirección del ámbito padre antes de liberar el ámbito actual con free(). También tuve que considerar que la raíz no debe liberarse, porque puede estar declarada directamente en el programa y no haber sido creada con malloc().
 
-Otra restricción importante fue comprobar que los argumentos recibidos no fueran NULL y verificar que la reserva de memoria se realizara correctamente para evitar errores durante la ejecución.
+> Otra restricción importante fue comprobar que los argumentos recibidos no fueran NULL y verificar que la reserva de memoria se realizara correctamente para evitar errores durante la ejecución.
 
 ---
 
@@ -151,23 +151,23 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion15.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Al revisar el código generado por la IA, identifiqué que el nombre del ámbito se guarda mediante un apuntador (nuevo->nombre = nombre), pero no se realiza una copia de la cadena.
 
-Esto puede ocasionar un problema si el nombre proviene de una variable local que deja de existir mientras el ámbito todavía conserva su apuntador.
+> Esto puede ocasionar un problema si el nombre proviene de una variable local que deja de existir mientras el ámbito todavía conserva su apuntador.
 
-Detecté este detalle al revisar cómo se almacena el nombre dentro de la estructura Ambito.
+> Detecté este detalle al revisar cómo se almacena el nombre dentro de la estructura Ambito.
 
-Para evitarlo, consideré necesario mantener la cadena original válida durante todo el tiempo de vida del ámbito. Utilicé nombres con almacenamiento persistente, como las cadenas literales "if" y "while" utilizadas en las pruebas.
+> Para evitarlo, consideré necesario mantener la cadena original válida durante todo el tiempo de vida del ámbito. Utilicé nombres con almacenamiento persistente, como las cadenas literales "if" y "while" utilizadas en las pruebas.
 
-No modifiqué la estructura proporcionada por el profesor porque forma parte del contrato original.
+> No modifiqué la estructura proporcionada por el profesor porque forma parte del contrato original.
 
-También comprobé que pop_ambito() guardara el apuntador al padre antes de liberar la memoria del ámbito actual, evitando perder la referencia al bloque anterior.
+> También comprobé que pop_ambito() guardara el apuntador al padre antes de liberar la memoria del ámbito actual, evitando perder la referencia al bloque anterior.
 
 ---
-**Firma digital:** [Blanca Janet Homa May]
+**Firma digital:** [BlancaHoma14]
