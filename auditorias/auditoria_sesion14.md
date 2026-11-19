@@ -37,9 +37,6 @@ Finalmente, comprendí que antes de utilizar una variable es necesario comprobar
 
 **ESPECIFICACIÓN:** Implementa las siguientes funciones respetando exactamente las firmas declaradas en `api_sesion14.h`:
 
-```c
-int declarar(Tabla *tabla, const char *nombre);
-int usar(const Tabla *tabla, const char *nombre);
 ```
 
 La estructura Tabla contiene un arreglo de nombres con capacidad máxima de 16 elementos y un contador total.
@@ -151,19 +148,19 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion14.md
 ```
 
-* [ ✓] Caso base y límites superados sin *Crash*.
-* [ ✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [ ✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Al revisar la implementación generada por la inteligencia artificial, identifiqué que era importante considerar casos límite que no aparecen directamente en las pruebas principales, como recibir una tabla NULL, un nombre NULL, una cadena vacía o una tabla que ya alcanzó su capacidad máxima.
 
-Para mejorar la solución, incorporé la función auxiliar tabla_valida(), que comprueba que la tabla exista y que el contador se encuentre dentro del rango permitido. También agregué validaciones para evitar insertar nombres duplicados y superar la capacidad de 16 elementos.
+> Para mejorar la solución, incorporé la función auxiliar tabla_valida(), que comprueba que la tabla exista y que el contador se encuentre dentro del rango permitido. También agregué validaciones para evitar insertar nombres duplicados y superar la capacidad de 16 elementos.
 
-Además, utilicé strcmp() para comprobar que los nombres sean exactamente iguales y evitar confundir variables con nombres similares, como x y xy.
+> Además, utilicé strcmp() para comprobar que los nombres sean exactamente iguales y evitar confundir variables con nombres similares, como x y xy.
 
-Con estas mejoras conseguí una implementación más organizada, segura y fácil de mantener.
+> Con estas mejoras conseguí una implementación más organizada, segura y fácil de mantener.
 
 ---
-**Firma digital:** [Blanca Janet Homa May]
+**Firma digital:** [BlancaHoma14]
