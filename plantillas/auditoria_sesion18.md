@@ -144,9 +144,9 @@ int indice_en_rango(int indice, int elementos)
 Pega aquí la salida de la celda del harness. Debe terminar con:
 RESULTADO: n/n pruebas superadas
 
-```
 RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion18.md
+```
 
 * [✓] Caso base y límites superados sin *Crash*.
 * [✓] No existen accesos fuera de límites ni *Memory Leaks*.
