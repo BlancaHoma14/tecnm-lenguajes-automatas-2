@@ -132,6 +132,8 @@ int tamano_struct(const Campo *campos, int total)
 ## 4. Fase 3: El Auditor (Resultados del Test Harness)
 *Pruebas ejecutadas:* Acceso a miembros inexistentes
 
+### Salida del harness
+```text
                   === AUDITORIA SESION 19 - Offsets de miembros y tamano de struct ===
             Caso                      esperado:              obtenido:         resultado
       [ 1] struct char e int: b       esperado: 4            obtenido: 4            OK
@@ -141,19 +143,13 @@ int tamano_struct(const Campo *campos, int total)
       [ 5] miembro inexistente        esperado: -1           obtenido: -1           OK
       [ 6] struct sin campos          esperado: 0            obtenido: 0            OK
 
-
-### Salida del harness
-```text
-Pega aquí la salida de la celda del harness. Debe terminar con:
-RESULTADO: n/n pruebas superadas
-
 RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion19.md  
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
