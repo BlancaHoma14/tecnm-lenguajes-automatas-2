@@ -107,9 +107,7 @@ int diagnosticar_retorno(const char *tipo_funcion,
 
 ### Salida del harness
 ```text
-Pega aquí la salida de la celda del harness. Debe terminar con:
-RESULTADO: n/n pruebas superadas
-```            === AUDITORIA SESION 17 - Validacion de retornos y rutas ===
+=== AUDITORIA SESION 17 - Validacion de retornos y rutas ===
 Caso                            esperado:          obtenido:       resultado
 [ 1] int con int y dos rutas    esperado: 0        obtenido: 0         OK
 [ 2] void devuelve valor        esperado: 1        obtenido: 1         OK
@@ -121,11 +119,11 @@ Caso                            esperado:          obtenido:       resultado
 RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion17.md
 
+```
 
-
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
