@@ -128,8 +128,11 @@ int indice_en_rango(int indice, int elementos)
 
 ## 4. Fase 3: El Auditor (Resultados del Test Harness)
 *Pruebas ejecutadas:* Límites estáticos y dimensiones inválidas
+        
+### Salida del harness
+```text
 
-              === AUDITORIA SESION 18 - Tamano de arreglo y limites ===
+ === AUDITORIA SESION 18 - Tamano de arreglo y limites ===
               Caso                esperado:          obtenido:          resultado
         [ 1] int[10]              esperado: 40       obtenido: 40          OK
         [ 2] double[3]            esperado: 24       obtenido: 24          OK
@@ -138,19 +141,13 @@ int indice_en_rango(int indice, int elementos)
         [ 5] indice 5 de 5        esperado: 0        obtenido: 0           OK
         [ 6] indice negativo      esperado: 0        obtenido: 0           OK
 
-        
-### Salida del harness
-```text
-Pega aquí la salida de la celda del harness. Debe terminar con:
-RESULTADO: n/n pruebas superadas
-
 RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion18.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
