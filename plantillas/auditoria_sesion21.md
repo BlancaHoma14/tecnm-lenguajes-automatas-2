@@ -157,5 +157,6 @@ Para solucionar este problema, agregué la biblioteca limits.h y una condición 
 También consideré el caso en el que alguno de los campos del cuádruplo fuera NULL. Para evitar generar cadenas incorrectas o acceder a punteros nulos, utilicé la función auxiliar campo_seguro(), que sustituye esos valores por _.
 
 Finalmente, identifiqué que snprintf() evita escribir más allá de la capacidad indicada, pero puede truncar el resultado si el búfer es demasiado pequeño. Por eso, es importante proporcionar una capacidad suficiente para almacenar el temporal o el cuádruplo completo.
+
 ---
 **Firma digital:** [BlancaHoma14]
