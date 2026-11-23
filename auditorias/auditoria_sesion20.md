@@ -211,17 +211,17 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion20.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Al revisar el código generado por la IA, identifiqué que no contempla la detección de ciclos en la cadena de ámbitos. Si un ámbito tuviera como padre a otro que finalmente vuelve a apuntar al primero, los recorridos podrían continuar indefinidamente.
 
-Para evitar este problema durante la actividad, mantuve la estructura de ámbitos como una cadena jerárquica sin ciclos, verificando que cada ámbito tenga correctamente asignado su padre. También conservé las comprobaciones de límites del arreglo simbolos, ignoré los nombres NULL y verifiqué los nombres repetidos dentro del mismo ámbito.
+> Para evitar este problema durante la actividad, mantuve la estructura de ámbitos como una cadena jerárquica sin ciclos, verificando que cada ámbito tenga correctamente asignado su padre. También conservé las comprobaciones de límites del arreglo simbolos, ignoré los nombres NULL y verifiqué los nombres repetidos dentro del mismo ámbito.
 
-De esta manera, la implementación cumple los casos establecidos por el harness bajo la condición de que la cadena de ámbitos esté correctamente construida.
+> De esta manera, la implementación cumple los casos establecidos por el harness bajo la condición de que la cadena de ámbitos esté correctamente construida.
 
 ---
 **Firma digital:** [BlancaHoma14]
