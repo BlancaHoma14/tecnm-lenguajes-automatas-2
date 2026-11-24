@@ -13,11 +13,11 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al realizar manualmente el código, identifiqué que una de las principales dificultades era generar nombres temporales únicos y consecutivos, como _t0, _t1, _t2, sin repetirlos.
 
-También tuve que considerar las restricciones de memoria al escribir los resultados en un arreglo de caracteres. Si el tamaño del búfer no es suficiente, existe el riesgo de que la cadena quede incompleta o se produzcan problemas al manipularla.
+> También tuve que considerar las restricciones de memoria al escribir los resultados en un arreglo de caracteres. Si el tamaño del búfer no es suficiente, existe el riesgo de que la cadena quede incompleta o se produzcan problemas al manipularla.
 
-Otra dificultad fue respetar el formato de los cuádruplos, ya que cada uno debe contener cuatro elementos: operador, primer operando, segundo operando y resultado.
+> Otra dificultad fue respetar el formato de los cuádruplos, ya que cada uno debe contener cuatro elementos: operador, primer operando, segundo operando y resultado.
 
-Para resolverlo manualmente, utilicé snprintf() para escribir las cadenas dentro del espacio disponible y un contador entero para generar los temporales.
+> Para resolverlo manualmente, utilicé snprintf() para escribir las cadenas dentro del espacio disponible y un contador entero para generar los temporales.
 
 ---
 
@@ -144,19 +144,19 @@ TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion21.md
 
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > La IA no consideró inicialmente el posible desbordamiento del contador entero al generar los identificadores temporales. Si el contador llegara a su valor máximo (INT_MAX) y se incrementara nuevamente, podría producirse un desbordamiento de entero con signo.
 
-Para solucionar este problema, agregué la biblioteca limits.h y una condición que comprueba que el contador sea menor que INT_MAX antes de incrementarlo.
+> Para solucionar este problema, agregué la biblioteca limits.h y una condición que comprueba que el contador sea menor que INT_MAX antes de incrementarlo.
 
-También consideré el caso en el que alguno de los campos del cuádruplo fuera NULL. Para evitar generar cadenas incorrectas o acceder a punteros nulos, utilicé la función auxiliar campo_seguro(), que sustituye esos valores por _.
+> También consideré el caso en el que alguno de los campos del cuádruplo fuera NULL. Para evitar generar cadenas incorrectas o acceder a punteros nulos, utilicé la función auxiliar campo_seguro(), que sustituye esos valores por _.
 
-Finalmente, identifiqué que snprintf() evita escribir más allá de la capacidad indicada, pero puede truncar el resultado si el búfer es demasiado pequeño. Por eso, es importante proporcionar una capacidad suficiente para almacenar el temporal o el cuádruplo completo.
+> Finalmente, identifiqué que snprintf() evita escribir más allá de la capacidad indicada, pero puede truncar el resultado si el búfer es demasiado pequeño. Por eso, es importante proporcionar una capacidad suficiente para almacenar el temporal o el cuádruplo completo.
 
 ---
 **Firma digital:** [BlancaHoma14]
