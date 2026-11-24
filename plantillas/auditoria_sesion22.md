@@ -33,19 +33,13 @@ Para resolverlo manualmente, utilicé una función recursiva llamada traducir() 
 
 ### 2.2 Prompt Estructurado
 ```text
-**CONTEXTO (C):**
-
-Estoy trabajando en la materia Lenguajes y Autómatas II, Sesión 22: Generación de TAC para Expresiones Aritmético-Lógicas. Utilizo lenguaje C y GCC con las opciones `-std=c11 -Wall -Wextra -Werror`.
+**CONTEXTO (C):** Estoy trabajando en la materia Lenguajes y Autómatas II, Sesión 22: Generación de TAC para Expresiones Aritmético-Lógicas. Utilizo lenguaje C y GCC con las opciones `-std=c11 -Wall -Wextra -Werror`.
 
 Tengo un archivo `api_sesion22.h` que define la estructura `Nodo` y la función `generar_tac()`.
 
-**ROL (R):**
+**ROL (R):** Actúa como un ingeniero de software especializado en compiladores, árboles de sintaxis abstracta (AST), recorridos recursivos y generación de código intermedio.
 
-Actúa como un ingeniero de software especializado en compiladores, árboles de sintaxis abstracta (AST), recorridos recursivos y generación de código intermedio.
-
-**ESPECIFICACIÓN (E):**
-
-Implementa la función:
+**ESPECIFICACIÓN (E):** Implementa la función:
 
 ```c
 int generar_tac(const Nodo *raiz, char lineas[][64], int max);
@@ -62,9 +56,7 @@ Debes cumplir lo siguiente:
 9. Evitar accesos fuera de los límites del arreglo.
 10. No modificar `api_sesion22.h` ni agregar una función `main()`.
 
-**OUTPUT (O):**
-
-Entrega el código completo en C, modular, con funciones auxiliares, comentarios, validaciones y análisis de complejidad temporal y espacial. Explica las mejoras realizadas respecto a una implementación manual y asegúrate de conservar exactamente la firma del contrato.
+**OUTPUT (O):** Entrega el código completo en C, modular, con funciones auxiliares, comentarios, validaciones y análisis de complejidad temporal y espacial. Explica las mejoras realizadas respecto a una implementación manual y asegúrate de conservar exactamente la firma del contrato.
 ```
 
 ---
