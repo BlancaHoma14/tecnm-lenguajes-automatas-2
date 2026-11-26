@@ -13,11 +13,11 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al desarrollar manualmente la función emitir_condicion(), identifiqué que la principal dificultad era representar correctamente las condiciones lógicas AND (&) y OR (|) mediante saltos condicionales.
 
-Tuve que distinguir qué instrucción debía utilizar en cada caso: IFFALSE para AND y IFTRUE para OR. También debía asegurarme de que ambos saltos utilizaran la misma etiqueta de salida para mantener el comportamiento de cortocircuito.
+> Tuve que distinguir qué instrucción debía utilizar en cada caso: IFFALSE para AND y IFTRUE para OR. También debía asegurarme de que ambos saltos utilizaran la misma etiqueta de salida para mantener el comportamiento de cortocircuito.
 
-Otra dificultad fue controlar el tamaño del arreglo lineas[][64], porque cada instrucción debe caber en un espacio de 64 caracteres, incluyendo el carácter nulo '\0'. Además, tuve que comprobar que el parámetro max fuera suficiente para almacenar una o dos instrucciones, dependiendo de si el segundo operando era NULL.
+> Otra dificultad fue controlar el tamaño del arreglo lineas[][64], porque cada instrucción debe caber en un espacio de 64 caracteres, incluyendo el carácter nulo '\0'. Además, tuve que comprobar que el parámetro max fuera suficiente para almacenar una o dos instrucciones, dependiendo de si el segundo operando era NULL.
 
-Para evitar errores de memoria utilicé snprintf(), validé los apuntadores y comprobé que el resultado de cada operación no excediera la capacidad disponible.
+> Para evitar errores de memoria utilicé snprintf(), validé los apuntadores y comprobé que el resultado de cada operación no excediera la capacidad disponible.
 
 ---
 
@@ -164,19 +164,19 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion24.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Durante la revisión del código identifiqué que era importante comprobar el comportamiento cuando el arreglo no tenía capacidad suficiente para almacenar las instrucciones. Por ejemplo, si existen dos operandos, pero max solamente permite una instrucción, el programa no debe intentar escribir la segunda posición.
 
-Para solucionar este problema se agregó la validación:
+> Para solucionar este problema se agregó la validación:
 if (max < cantidad) {
     return 0;
 }
-También se revisó el caso en el que un operando o la etiqueta fueran demasiado largos para caber en los 64 caracteres disponibles. Para ello se comprueba el valor que devuelve snprintf(). Si la cadena no cabe, la función regresa cero y no copia las instrucciones temporales al arreglo definitivo.
+> También se revisó el caso en el que un operando o la etiqueta fueran demasiado largos para caber en los 64 caracteres disponibles. Para ello se comprueba el valor que devuelve snprintf(). Si la cadena no cabe, la función regresa cero y no copia las instrucciones temporales al arreglo definitivo.
 
 ---
 **Firma digital:** [BlancaHoma14]
