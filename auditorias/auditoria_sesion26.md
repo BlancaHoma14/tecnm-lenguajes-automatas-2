@@ -13,13 +13,13 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al desarrollar manualmente las funciones emitir_llamada() y emitir_return(), identifiqué que la principal dificultad consistía en generar las instrucciones TAC respetando el orden de los argumentos y la cantidad real de parámetros enviados a cada función.
 
-En la función emitir_llamada() tuve que comprobar si los argumentos a1 y a2 eran diferentes de NULL, porque solamente los argumentos existentes debían generar una instrucción PARAM. También fue necesario llevar un contador para indicar correctamente el número de parámetros en la instrucción CALL.
+> En la función emitir_llamada() tuve que comprobar si los argumentos a1 y a2 eran diferentes de NULL, porque solamente los argumentos existentes debían generar una instrucción PARAM. También fue necesario llevar un contador para indicar correctamente el número de parámetros en la instrucción CALL.
 
-Otra dificultad fue controlar el espacio disponible en el arreglo lineas[][64], ya que cada instrucción debía caber en un máximo de 63 caracteres más el terminador nulo. Si el arreglo no tenía suficiente capacidad, la generación podía quedar incompleta.
+> Otra dificultad fue controlar el espacio disponible en el arreglo lineas[][64], ya que cada instrucción debía caber en un máximo de 63 caracteres más el terminador nulo. Si el arreglo no tenía suficiente capacidad, la generación podía quedar incompleta.
 
-En la función emitir_return() tuve que considerar dos situaciones: generar RETURN acompañado de un valor o generar únicamente RETURN cuando el argumento recibido fuera NULL.
+> En la función emitir_return() tuve que considerar dos situaciones: generar RETURN acompañado de un valor o generar únicamente RETURN cuando el argumento recibido fuera NULL.
 
-También identifiqué que las llamadas anidadas, como f(g(x)), requieren conservar los temporales generados por las llamadas anteriores. Por eso es importante actualizar correctamente el contador n y no reiniciar las instrucciones que ya existen.
+> También identifiqué que las llamadas anidadas, como f(g(x)), requieren conservar los temporales generados por las llamadas anteriores. Por eso es importante actualizar correctamente el contador n y no reiniciar las instrucciones que ya existen.
 
 ---
 
@@ -193,19 +193,19 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion26.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Durante la auditoría identifiqué que el harness principal solamente comprueba seis casos y no verifica todas las situaciones posibles de las funciones.
 
-Uno de los casos que requiere atención es cuando el arreglo lineas no tiene espacio suficiente para almacenar todos los parámetros y la instrucción CALL. También es importante comprobar qué sucede cuando una cadena es demasiado larga para caber en los 64 caracteres disponibles.
+> Uno de los casos que requiere atención es cuando el arreglo lineas no tiene espacio suficiente para almacenar todos los parámetros y la instrucción CALL. También es importante comprobar qué sucede cuando una cadena es demasiado larga para caber en los 64 caracteres disponibles.
 
-La versión manual podía escribir algunos parámetros antes de descubrir que no existía espacio para la instrucción CALL. Para solucionar esta situación, la versión mejorada utiliza un arreglo temporal y realiza todas las validaciones antes de modificar el arreglo definitivo.
+> La versión manual podía escribir algunos parámetros antes de descubrir que no existía espacio para la instrucción CALL. Para solucionar esta situación, la versión mejorada utiliza un arreglo temporal y realiza todas las validaciones antes de modificar el arreglo definitivo.
 
-También se mejoró el manejo del retorno cuando el destino es demasiado pequeño, limpiando la cadena para evitar conservar una instrucción incompleta.
+> También se mejoró el manejo del retorno cuando el destino es demasiado pequeño, limpiando la cadena para evitar conservar una instrucción incompleta.
 
 ---
 **Firma digital:** [BlancaHoma14]
