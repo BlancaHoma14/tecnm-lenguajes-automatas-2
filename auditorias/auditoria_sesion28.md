@@ -13,7 +13,7 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al desarrollar manualmente la función plegar(), identifiqué que la principal dificultad era distinguir entre operandos que representan números enteros y operandos que son variables o expresiones que todavía no pueden calcularse.
 
-Para resolverlo utilicé la función strtoll(), que permite convertir una cadena de texto a un número entero y comprobar que la conversión haya terminado correctamente, sin aceptar caracteres sobrantes.
+> Para resolverlo utilicé la función strtoll(), que permite convertir una cadena de texto a un número entero y comprobar que la conversión haya terminado correctamente, sin aceptar caracteres sobrantes.
 
 También identifiqué las siguientes restricciones:
 - El destino dst tiene una capacidad limitada indicada por cap.
