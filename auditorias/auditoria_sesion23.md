@@ -13,9 +13,9 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al realizar manualmente el generador de etiquetas identifiqué que debía controlar correctamente el contador para generar etiquetas únicas y consecutivas, comenzando desde L0. También tuve que considerar el tamaño del arreglo de caracteres para evitar escribir fuera de los límites de memoria.
 
-Otra dificultad fue construir correctamente las instrucciones de flujo de control. Cuando se trata de un salto, la salida debe tener el formato GOTO Lx, mientras que cuando se declara una etiqueta debe terminar con dos puntos, por ejemplo L2:.
+> Otra dificultad fue construir correctamente las instrucciones de flujo de control. Cuando se trata de un salto, la salida debe tener el formato GOTO Lx, mientras que cuando se declara una etiqueta debe terminar con dos puntos, por ejemplo L2:.
 
-Además, identifiqué que era necesario validar los apuntadores nulos y el tamaño del búfer, ya que trabajar con cadenas en C requiere tener cuidado con la memoria disponible y el carácter nulo '\0' que indica el final de una cadena.
+> Además, identifiqué que era necesario validar los apuntadores nulos y el tamaño del búfer, ya que trabajar con cadenas en C requiere tener cuidado con la memoria disponible y el carácter nulo '\0' que indica el final de una cadena.
 
 ---
 
@@ -126,17 +126,17 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion23.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Durante la revisión del código identifiqué que un caso importante era el posible desbordamiento del contador cuando alcanzara el valor máximo permitido para un entero (INT_MAX). Si el contador se incrementara después de llegar a ese límite, podría producirse un comportamiento indefinido.
 
-Para solucionar este problema incorporé la biblioteca limits.h y agregué una validación que impide incrementar el contador cuando alcanza INT_MAX.
+> Para solucionar este problema incorporé la biblioteca limits.h y agregué una validación que impide incrementar el contador cuando alcanza INT_MAX.
 
-También reforcé la validación de la capacidad del búfer y revisé el valor devuelto por snprintf(). Si la cadena no cabe completamente en el espacio disponible, el código limpia el destino para evitar conservar una salida incompleta.
+> También reforcé la validación de la capacidad del búfer y revisé el valor devuelto por snprintf(). Si la cadena no cabe completamente en el espacio disponible, el código limpia el destino para evitar conservar una salida incompleta.
 
 ---
 **Firma digital:** [BlancaHoma14]
