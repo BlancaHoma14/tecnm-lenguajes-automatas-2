@@ -13,13 +13,13 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al desarrollar manualmente las funciones emitir_while() y emitir_for(), identifiqué que la principal dificultad era organizar correctamente las instrucciones del ciclo y controlar las etiquetas de inicio y salida.
 
-En el ciclo while tuve que generar cuatro instrucciones en el orden correcto: etiqueta de inicio, salto condicional, salto de regreso y etiqueta de salida.
+> En el ciclo while tuve que generar cuatro instrucciones en el orden correcto: etiqueta de inicio, salto condicional, salto de regreso y etiqueta de salida.
 
-En el ciclo for fue necesario colocar la inicialización antes de comenzar el ciclo y la actualización del iterador después de evaluar la condición, pero antes del salto de regreso. También tuve que considerar que los argumentos inicio y post podían ser NULL, por lo que esas instrucciones debían omitirse cuando no existieran.
+> En el ciclo for fue necesario colocar la inicialización antes de comenzar el ciclo y la actualización del iterador después de evaluar la condición, pero antes del salto de regreso. También tuve que considerar que los argumentos inicio y post podían ser NULL, por lo que esas instrucciones debían omitirse cuando no existieran.
 
-Otra dificultad fue controlar el tamaño del arreglo lineas[][64], porque cada instrucción debía ocupar como máximo 63 caracteres más el terminador nulo. Además, tuve que evitar que el contador n superara la capacidad max y asegurar que cada ciclo utilizara dos etiquetas diferentes.
+> Otra dificultad fue controlar el tamaño del arreglo lineas[][64], porque cada instrucción debía ocupar como máximo 63 caracteres más el terminador nulo. Además, tuve que evitar que el contador n superara la capacidad max y asegurar que cada ciclo utilizara dos etiquetas diferentes.
 
-Para resolver estas dificultades utilicé snprintf(), validaciones de apuntadores y comprobaciones de capacidad antes de escribir las instrucciones.
+> Para resolver estas dificultades utilicé snprintf(), validaciones de apuntadores y comprobaciones de capacidad antes de escribir las instrucciones.
 
 ---
 
@@ -222,19 +222,19 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion25.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Durante la auditoría identifiqué que era importante comprobar qué sucede cuando el arreglo no tiene espacio suficiente para almacenar todas las instrucciones de un ciclo.
 
-Por ejemplo, si el ciclo while necesita cuatro líneas y el arreglo solamente tiene espacio para tres, no debe escribir parcialmente el ciclo ni modificar los contadores.
+> Por ejemplo, si el ciclo while necesita cuatro líneas y el arreglo solamente tiene espacio para tres, no debe escribir parcialmente el ciclo ni modificar los contadores.
 
-También consideré el caso en el que la inicialización o la actualización del for sean demasiado largas para caber en los 64 caracteres disponibles.
+> También consideré el caso en el que la inicialización o la actualización del for sean demasiado largas para caber en los 64 caracteres disponibles.
 
-Para prevenir estos problemas se utilizaron arreglos temporales y se verificó el resultado de cada llamada a snprintf(). Además, se comprobó la capacidad disponible antes de copiar las instrucciones al arreglo definitivo.
+> Para prevenir estos problemas se utilizaron arreglos temporales y se verificó el resultado de cada llamada a snprintf(). Además, se comprobó la capacidad disponible antes de copiar las instrucciones al arreglo definitivo.
 
 ---
 **Firma digital:** [BlancaHoma14]
