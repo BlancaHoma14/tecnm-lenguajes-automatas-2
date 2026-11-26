@@ -17,12 +17,12 @@ En el arreglo bidimensional tuve que realizar más operaciones, respetando el or
 Después multipliqué el índice lineal por el ancho del elemento para obtener el desplazamiento definitivo.
 
 > También identifiqué las siguientes restricciones:
-- Cada instrucción debe almacenarse en un espacio máximo de 64 caracteres.
-- Los temporales deben generarse consecutivamente y sin repetir nombres.
-- La capacidad del arreglo lineas debe ser suficiente para almacenar todas las instrucciones.
-- Los parámetros no deben ser NULL cuando sean necesarios.
-- El contador de temporales no debe superar el límite de un entero.
-La dificultad principal fue evitar que una instrucción incompleta o demasiado larga dejara el arreglo parcialmente modificado.
+> - Cada instrucción debe almacenarse en un espacio máximo de 64 caracteres.
+> - Los temporales deben generarse consecutivamente y sin repetir nombres.
+> - La capacidad del arreglo lineas debe ser suficiente para almacenar todas las instrucciones.
+> - Los parámetros no deben ser NULL cuando sean necesarios.
+> - El contador de temporales no debe superar el límite de un entero.
+> La dificultad principal fue evitar que una instrucción incompleta o demasiado larga dejara el arreglo parcialmente modificado.
 
 ---
 
