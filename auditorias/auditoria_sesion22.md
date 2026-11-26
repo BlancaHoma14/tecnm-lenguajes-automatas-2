@@ -13,11 +13,11 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al realizar manualmente el código, identifiqué que la principal dificultad era recorrer correctamente el árbol de sintaxis abstracta (AST) para generar las instrucciones en el orden adecuado.
 
-Tuve que comprender cómo funciona el recorrido en postorden, porque primero se deben procesar los hijos izquierdo y derecho y después el operador. Si no se respeta este orden, las operaciones pueden generarse incorrectamente y no se conserva la precedencia de las expresiones.
+> Tuve que comprender cómo funciona el recorrido en postorden, porque primero se deben procesar los hijos izquierdo y derecho y después el operador. Si no se respeta este orden, las operaciones pueden generarse incorrectamente y no se conserva la precedencia de las expresiones.
 
-Otra dificultad fue controlar los temporales, ya que cada operador necesita un identificador diferente, como _t0, _t1 y _t2. También tuve que considerar las restricciones de memoria del arreglo lineas[][64], porque no se deben escribir más líneas de las permitidas ni superar los 63 caracteres de contenido por línea.
+> Otra dificultad fue controlar los temporales, ya que cada operador necesita un identificador diferente, como _t0, _t1 y _t2. También tuve que considerar las restricciones de memoria del arreglo lineas[][64], porque no se deben escribir más líneas de las permitidas ni superar los 63 caracteres de contenido por línea.
 
-Para resolverlo manualmente, utilicé una función recursiva llamada traducir() que procesa los nodos y devuelve el nombre del temporal o el valor de la hoja.
+> Para resolverlo manualmente, utilicé una función recursiva llamada traducir() que procesa los nodos y devuelve el nombre del temporal o el valor de la hoja.
 
 ---
 
@@ -248,17 +248,17 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion22.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓ ] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Al revisar el código generado por la IA, identifiqué que, aunque contempla la validación de nodos nulos, tipos inválidos y capacidad disponible, existe una situación que debe considerarse: cuando el árbol contiene más operadores de los que permite el arreglo lineas, la traducción se detiene y puede devolver solamente las instrucciones que alcanzó a generar.
 
-Esto sucede porque la función devuelve un entero que representa la cantidad de instrucciones, pero no tiene un parámetro independiente para comunicar si la traducción terminó correctamente o si se interrumpió por falta de espacio.
+> Esto sucede porque la función devuelve un entero que representa la cantidad de instrucciones, pero no tiene un parámetro independiente para comunicar si la traducción terminó correctamente o si se interrumpió por falta de espacio.
 
-También consideré el caso de que una instrucción TAC fuera demasiado larga para almacenarse en los 64 caracteres disponibles. Para evitar aceptar una línea incompleta, la versión mejorada comprueba el resultado de snprintf() y activa el indicador de error cuando detecta truncamiento.
+> También consideré el caso de que una instrucción TAC fuera demasiado larga para almacenarse en los 64 caracteres disponibles. Para evitar aceptar una línea incompleta, la versión mejorada comprueba el resultado de snprintf() y activa el indicador de error cuando detecta truncamiento.
 
 ---
 **Firma digital:** [BlancaHoma14]
