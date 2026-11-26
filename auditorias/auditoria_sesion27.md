@@ -16,7 +16,7 @@ En el arreglo unidimensional tuve que multiplicar el índice por el ancho de cad
 En el arreglo bidimensional tuve que realizar más operaciones, respetando el orden de la fórmula: i*filas + j
 Después multipliqué el índice lineal por el ancho del elemento para obtener el desplazamiento definitivo.
 
-También identifiqué las siguientes restricciones:
+> También identifiqué las siguientes restricciones:
 - Cada instrucción debe almacenarse en un espacio máximo de 64 caracteres.
 - Los temporales deben generarse consecutivamente y sin repetir nombres.
 - La capacidad del arreglo lineas debe ser suficiente para almacenar todas las instrucciones.
@@ -214,22 +214,22 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion27.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Durante la auditoría identifiqué que el harness proporcionado comprueba los seis casos principales, pero no evalúa directamente situaciones como recibir un índice demasiado largo, tener una capacidad insuficiente en el arreglo lineas o utilizar un contador de temporales cercano al límite de un entero.
 
-Para atender estas situaciones, incorporé validaciones adicionales en el código mejorado:
-- Comprobación de la capacidad mínima: dos instrucciones para 1D y cuatro para 2D.
-- Verificación del tamaño de las cadenas generadas con snprintf().
-- Validación del contador antes de generar nuevos temporales.
-- Comprobación de que las dimensiones y el ancho sean mayores que cero.
-- Preparación de todas las instrucciones en arreglos temporales antes de copiarlas al resultado definitivo.
-También observé que el harness no comprueba directamente el valor final del contador de temporales. Por eso, considero importante verificarlo en pruebas adicionales para asegurar que cada función incremente correctamente el contador.
-Estas validaciones permiten mejorar la seguridad de la generación de instrucciones y evitar modificaciones parciales cuando ocurre un error.
+> Para atender estas situaciones, incorporé validaciones adicionales en el código mejorado:
+> - Comprobación de la capacidad mínima: dos instrucciones para 1D y cuatro para 2D.
+> - Verificación del tamaño de las cadenas generadas con snprintf().
+> - Validación del contador antes de generar nuevos temporales.
+> - Comprobación de que las dimensiones y el ancho sean mayores que cero.
+> - Preparación de todas las instrucciones en arreglos temporales antes de copiarlas al resultado definitivo.
+> También observé que el harness no comprueba directamente el valor final del contador de temporales. Por eso, considero importante verificarlo en pruebas adicionales para asegurar que cada función incremente correctamente el contador.
+> Estas validaciones permiten mejorar la seguridad de la generación de instrucciones y evitar modificaciones parciales cuando ocurre un error.
 
 ---
 **Firma digital:** [BlancaHoma14]
