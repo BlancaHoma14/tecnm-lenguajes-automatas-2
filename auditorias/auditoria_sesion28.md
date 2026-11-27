@@ -15,15 +15,15 @@
 
 > Para resolverlo utilicé la función strtoll(), que permite convertir una cadena de texto a un número entero y comprobar que la conversión haya terminado correctamente, sin aceptar caracteres sobrantes.
 
-También identifiqué las siguientes restricciones:
-- El destino dst tiene una capacidad limitada indicada por cap.
-- Es necesario comprobar que los apuntadores recibidos no sean NULL.
-- Se debe evitar que las operaciones aritméticas provoquen desbordamientos.
-- Una división entre cero no debe calcularse ni provocar una excepción.
-- Las identidades algebraicas deben aplicarse sin modificar el significado de la expresión.
-- Si no es posible realizar una optimización, se debe conservar la instrucción TAC original.
-- La función debe generar una cadena válida y no escribir fuera de los límites del destino.
-La mayor dificultad fue controlar los diferentes casos de entrada y asegurar que una optimización no modificara incorrectamente el resultado del programa.
+> También identifiqué las siguientes restricciones:
+> - El destino dst tiene una capacidad limitada indicada por cap.
+> - Es necesario comprobar que los apuntadores recibidos no sean NULL.
+> - Se debe evitar que las operaciones aritméticas provoquen desbordamientos.
+> - Una división entre cero no debe calcularse ni provocar una excepción.
+> - Las identidades algebraicas deben aplicarse sin modificar el significado de la expresión.
+> - Si no es posible realizar una optimización, se debe conservar la instrucción TAC original.
+> - La función debe generar una cadena válida y no escribir fuera de los límites del destino.
+> La mayor dificultad fue controlar los diferentes casos de entrada y asegurar que una optimización no modificara incorrectamente el resultado del programa.
 
 ---
 
@@ -245,19 +245,19 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion28.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Durante la revisión del código identifiqué que el harness únicamente comprueba seis situaciones principales, por lo que no garantiza que todos los casos límite estén cubiertos.
 
-Un caso importante es la multiplicación de dos enteros cuyo resultado supera el rango permitido por long long. También se debe considerar la división de LLONG_MIN entre -1, porque esa operación puede provocar un desbordamiento.
+> Un caso importante es la multiplicación de dos enteros cuyo resultado supera el rango permitido por long long. También se debe considerar la división de LLONG_MIN entre -1, porque esa operación puede provocar un desbordamiento.
 
-Otro caso importante es cuando el destino tiene una capacidad insuficiente para almacenar la instrucción completa. Si no se comprueba el resultado de snprintf(), podría quedar una cadena incompleta.
+> Otro caso importante es cuando el destino tiene una capacidad insuficiente para almacenar la instrucción completa. Si no se comprueba el resultado de snprintf(), podría quedar una cadena incompleta.
 
-Para solucionar estos problemas se incorporaron validaciones de rango, comprobaciones del resultado de las operaciones aritméticas y verificaciones de capacidad antes de aceptar la cadena generada.
+> Para solucionar estos problemas se incorporaron validaciones de rango, comprobaciones del resultado de las operaciones aritméticas y verificaciones de capacidad antes de aceptar la cadena generada.
 
 ---
 **Firma digital:** [BlancaHoma14]
