@@ -13,18 +13,18 @@
 *Describe qué problema o restricción de memoria/sintaxis identificaste al codificar a mano:*
 > Al desarrollar manualmente la función eliminar_muerto(), identifiqué que la principal dificultad era reconocer cuándo una instrucción ya no podía ejecutarse y determinar en qué momento debía volver a conservar las instrucciones.
 
-Para resolverlo utilicé una variable de control llamada muerto, que me permitió identificar si el programa había encontrado una instrucción GOTO o RETURN.
+> Para resolverlo utilicé una variable de control llamada muerto, que me permitió identificar si el programa había encontrado una instrucción GOTO o RETURN.
 
-También identifiqué las siguientes restricciones:
-- El arreglo lineas tiene un espacio fijo de 64 caracteres por instrucción.
-- La función debe modificar el mismo arreglo, sin utilizar memoria dinámica.
-- Las instrucciones GOTO y RETURN deben conservarse.
-- Las instrucciones posteriores a un salto o retorno deben eliminarse hasta encontrar una etiqueta.
-- Las etiquetas terminadas en dos puntos deben conservarse porque representan puntos alcanzables.
-- El orden original de las instrucciones que sobreviven no debe cambiar.
-- La función debe devolver la nueva cantidad de instrucciones.
-- Una lista vacía debe devolver 0 sin intentar leer posiciones inexistentes.
-La principal dificultad fue compactar las instrucciones dentro del mismo arreglo sin sobrescribir información que todavía necesitaba revisar. También tuve que identificar correctamente las etiquetas y distinguir las instrucciones de salto de otros nombres de variables.
+> También identifiqué las siguientes restricciones:
+> - El arreglo lineas tiene un espacio fijo de 64 caracteres por instrucción.
+> - La función debe modificar el mismo arreglo, sin utilizar memoria dinámica.
+> - Las instrucciones GOTO y RETURN deben conservarse.
+> - Las instrucciones posteriores a un salto o retorno deben eliminarse hasta encontrar una etiqueta.
+> - Las etiquetas terminadas en dos puntos deben conservarse porque representan puntos alcanzables.
+> - El orden original de las instrucciones que sobreviven no debe cambiar.
+> - La función debe devolver la nueva cantidad de instrucciones.
+> - Una lista vacía debe devolver 0 sin intentar leer posiciones inexistentes.
+> La principal dificultad fue compactar las instrucciones dentro del mismo arreglo sin sobrescribir información que todavía necesitaba revisar. También tuve que identificar correctamente las etiquetas y distinguir las instrucciones de salto de otros nombres de variables.
 
 ---
 
@@ -176,17 +176,17 @@ RESULTADO: 6/6 pruebas superadas
 TODO EN VERDE. Documenta tu auditoria en auditorias/auditoria_sesion29.md
 ```
 
-* [✓] Caso base y límites superados sin *Crash*.
-* [✓] No existen accesos fuera de límites ni *Memory Leaks*.
-* [✓] La complejidad teórica coincide con la implementada.
+* [x] Caso base y límites superados sin *Crash*.
+* [x] No existen accesos fuera de límites ni *Memory Leaks*.
+* [x] La complejidad teórica coincide con la implementada.
 
 ### Reporte Crítico
 *¿Qué caso borde o problema omitió la IA y cómo lo solucionaste?*
 > Durante la revisión del código identifiqué que el harness original solamente comprueba los casos principales y no contempla directamente situaciones como instrucciones con espacios iniciales, etiquetas con espacios al final o identificadores que comienzan con las mismas letras que las instrucciones de salto.
 
-Por ejemplo, una cadena como RETURN_VALUE = 5 no debe interpretarse como una instrucción RETURN, porque es una asignación y no un retorno. De igual manera, GOTO_EXTRA = 3 no debe provocar que se eliminen las instrucciones siguientes.
+> Por ejemplo, una cadena como RETURN_VALUE = 5 no debe interpretarse como una instrucción RETURN, porque es una asignación y no un retorno. De igual manera, GOTO_EXTRA = 3 no debe provocar que se eliminen las instrucciones siguientes.
 
-Para atender estos casos, se mejoró la detección de instrucciones utilizando una función que comprueba que GOTO y RETURN sean palabras completas. También se incorporó el uso de isspace() para reconocer espacios y tabulaciones.
+> Para atender estos casos, se mejoró la detección de instrucciones utilizando una función que comprueba que GOTO y RETURN sean palabras completas. También se incorporó el uso de isspace() para reconocer espacios y tabulaciones.
 
 ---
 **Firma digital:** [BlancaHoma14]
